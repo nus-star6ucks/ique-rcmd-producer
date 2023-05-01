@@ -5,8 +5,14 @@ const { produce } = require("../producer");
 app.use(cors());
 app.set("port", process.env.PORT || 8081);
 app.get("/api/sendUserData", (req, res) => {
-  const value = req.query;
-  produce(req.query.userId, value)
+  const { userId, latitude, longitude } = req.query;
+  if (!userId || !latitude || !longitude)
+    return res.json({ success: false, msg: "invalid input" });
+  produce(req.query.userId, {
+    userId,
+    latitude: +latitude,
+    longitude: +longitude,
+  })
     .then(() => {
       console.log("success");
       res.json({ success: true, msg: "send ok" });
