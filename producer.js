@@ -3,10 +3,10 @@ const Kafka = require("node-rdkafka");
 function configFromEnv() {
   return {
     "bootstrap.servers": process.env.bootstrap_servers,
-    sasl_username: process.env.sasl_username,
-    sasl_password: process.env.sasl_password,
-    security_protocol: process.env.security_protocol,
-    "sasl.sasl_mechanisms": process.env.sasl_mechanisms,
+    "sasl.username": process.env.sasl_username,
+    "sasl.password": process.env.sasl_password,
+    "security.protocol": process.env.security_protocol,
+    "sasl.mechanisms": process.env.sasl_mechanisms,
     session_timeout_ms: process.env.session_timeout_ms,
     dr_msg_cb: true,
   };
