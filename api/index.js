@@ -4,7 +4,7 @@ const { produce } = require("../producer");
 
 app.use(cors());
 app.set("port", process.env.PORT || 8081);
-app.post("api/sendUserData", (req, res) => {
+app.post("/api/sendUserData", (req, res) => {
   const { userId, latitude, longitude } = req.body;
   if (!userId || !latitude || !longitude)
     return res.json({ success: false, msg: "invalid input" });
