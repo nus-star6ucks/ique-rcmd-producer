@@ -7,7 +7,6 @@ function configFromEnv() {
     "sasl.password": process.env.sasl_password,
     "security.protocol": process.env.security_protocol,
     "sasl.mechanisms": process.env.sasl_mechanisms,
-    session_timeout_ms: process.env.session_timeout_ms,
     dr_msg_cb: true,
   };
 }
